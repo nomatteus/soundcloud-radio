@@ -4,6 +4,7 @@
 var Station = function(params){
   var $el = $("#tracklist"),
       $nextTrack = $("#next-track"),
+      $pausePlay = $("#pause-play"),
       current_track = null, // init
       tracks = [],
       init = function() {
@@ -29,6 +30,11 @@ var Station = function(params){
           ev.preventDefault();
           console.log("next track clicked");
           playNextTrack();
+        });
+        $pausePlay.bind("click", function(ev){
+          ev.preventDefault();
+          console.log("pause/play called");
+          tracks[current_track].pausePlay();
         });
       },
       playNextTrack = function() {
@@ -71,24 +77,33 @@ var Track = function(params){
   show = function(){
     $($el).show();
   },
+  // Pauses or plays [toggle] the track
+  pausePlay = function() {
+    if (soundObject.paused) {
+      soundObject.resume();
+    } else {
+      soundObject.pause();
+    }
+  },
   play = function() {
-      soundObject = soundManager.createSound({
-        id: soundcloud.id,
-        url: soundcloud.stream_url,
-        autoLoad: true,
-        autoPlay: true,
-        onload: function() {
-          console.log('The sound '+this.sID+' loaded!');
-        },
-        volume: 50
-      });
-      soundObject.play();
+    soundObject = soundManager.createSound({
+      id: soundcloud.id,
+      url: soundcloud.stream_url,
+      autoLoad: true,
+      autoPlay: true,
+      onload: function() {
+        console.log('The sound '+this.sID+' loaded!');
+      },
+      volume: 50
+    });
+    soundObject.play();
   },
   stop = function() {
       console.log("Track.stop called");
       soundObject.stop();
   };
   return {
+    /* PUBLIC API METHODS */
     hide: function () {
       hide();
     },
@@ -100,6 +115,9 @@ var Track = function(params){
     },
     stop: function() {
       stop();
+    },
+    pausePlay: function() {
+      pausePlay();
     }
   };
 };
