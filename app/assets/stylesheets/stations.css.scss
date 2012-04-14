@@ -5,6 +5,13 @@
 	.container {
 		width: 100%;
 		.content-fluid {
+			#search-fields {
+				position: absolute;
+				bottom: 0;
+				.advanced {
+					display:none;
+				}
+			}
 			#progress {
 				background-color: rgba(0, 0, 0, 0.5);
 				width: 100%;

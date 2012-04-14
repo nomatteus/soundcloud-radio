@@ -212,6 +212,9 @@ soundManager.onready(function() {
   //});
 });
 
+$(".advanced-search-toggle").bind("click", function(){
+  $("#search-fields .advanced").toggle();
+});
 
 
 
