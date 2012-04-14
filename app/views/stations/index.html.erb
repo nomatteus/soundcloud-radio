@@ -1,2 +1,25 @@
+<div class="content-fluid">
+
 <h1>Stations#show</h1>
 <p>Find me in app/views/stations/show.html.erb</p>
+
+<ul id="tracklist">
+  <%= @tracks.each do |track| %>
+    <% if track.streamable %>
+    <li data-track-id="<%=track.id%>">
+      <!--<img src="<%=track.artwork_url%>">-->
+      <img src="<%=track.waveform_url%>">
+      <%=track.stream_url%>
+      <%=track.permalink_url%>
+      
+      <!-- for debugging...
+      <%= track.keys.each do |key| %>
+        key: <strong><%= key %></strong>, value: <%= track[key] %><br>
+      <% end %>
+      -->
+    </li>
+    <% end %>
+  <% end %>
+</ul>
+
+</div>
