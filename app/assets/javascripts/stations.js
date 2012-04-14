@@ -138,13 +138,17 @@ var Track = function(params){
       if (soundObject.peakData.left > threshold || soundObject.peakData.right > threshold) {
         // $("#peak").html("<pre>left:  " + soundObject.peakData.left + "\nright: " + soundObject.peakData.right + "</pre>");
 
-var colors = ["#b01f15", // red
+var colors1 = ["#b01f15", // red
             "#b0671b", // orange
             "#b0ac24", // yellow
             "#53af1f", // green
             "#0022af", // blue
             "#b02a8e" // purple
             ],
+  colors2 = ["#3955ff",
+            "#636eff"
+            ],
+  colors = (Math.floor(Math.random()*1)==1) ? colors1 : colors2;
   num_colors = colors.length,
   rand_color = Math.floor(Math.random()*num_colors);
         if (!$("body").hasClass("animating")) {
