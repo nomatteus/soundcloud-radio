@@ -1,4 +1,8 @@
 Soundcloud::Application.routes.draw do
+  get "stations/show"
+
+  get "station/show"
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
@@ -48,7 +52,7 @@ Soundcloud::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  # root :to => 'welcome#index'
+  root :to => 'stations#index'
 
   # See how all your routes lay out with "rake routes"
 
