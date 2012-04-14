@@ -7,12 +7,12 @@ class StationsController < ApplicationController
 
     @tracks = client.tracks({
       :q                => '', 
-      :"bpm[from]"      => 160, 
-      :"bpm[to]"        => 180, 
+      :"bpm[from]"      => 0, 
+      :"bpm[to]"        => 0, 
       :order            => "hotness",
       :"duration[from]" => 1*60*1000, # ms, 1*60*1000 = 1 minute
       :"duration[to]"   => 10*60*1000, # ms, 10*60*1000 = 10 minutes
-      :genres           => "", # comma-separated list of genres
+      :genres           => "dubstep", # comma-separated list of genres
       :types            => "", #comma-separated list of types i.e. original, remix
       :tags             => "", #comma-separated list of tags
       }).shuffle
