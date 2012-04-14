@@ -15,7 +15,7 @@ class StationsController < ApplicationController
       :genres           => "", # comma-separated list of genres
       :types            => "", #comma-separated list of types i.e. original, remix
       :tags             => "", #comma-separated list of tags
-      })
+      }).shuffle
 
 
   end

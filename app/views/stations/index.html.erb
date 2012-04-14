@@ -1,16 +1,21 @@
 <div class="content-fluid">
 
-<h1>Stations#show</h1>
-<p>Find me in app/views/stations/show.html.erb</p>
+<!-- <h1>Stations#show</h1>
+<p>Find me in app/views/stations/show.html.erb</p> -->
+
+<div id="controls">
+  <a href="#next" id="next-track">Next Track &raquo;</a>
+</div>
 
 <ul id="tracklist">
-  <%= @tracks.each do |track| %>
+  <% @tracks.each do |track| %>
     <% if track.streamable %>
-    <li data-track-id="<%=track.id%>">
-      <!--<img src="<%=track.artwork_url%>">-->
-      <img src="<%=track.waveform_url%>">
-      <%=track.stream_url%>
-      <%=track.permalink_url%>
+    <li data-track-id="<%=track.id%>" data-track-stream-url="<%=track.stream_url%>?client_id=7f77beae3d19100f293b7647d2e6c8e5" class="track">
+      <h3><span class="title"><%=track.title%></span> by <span class="username"><%=track.user.username%></span></h3>
+      <img src="<%=track.artwork_url%>"  class="artwork">
+      <img src="<%=track.waveform_url%>" class="waveform">
+      <a href="<%=track.permalink_url%>" target="_blank" class="permalink"><%=track.permalink_url%></a>
+      
       
       <!-- for debugging...
       <%= track.keys.each do |key| %>

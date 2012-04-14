@@ -6,7 +6,6 @@
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <!--[if IE 6]><%= stylesheet_link_tag 'ie6' %><![endif]-->
   <!--[if IE 7]><%= stylesheet_link_tag 'ie7' %><![endif]-->
-  <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
 <body id="<%= params[:controller] + '-' + params[:action] %>">
@@ -23,11 +22,12 @@
 
     <%= yield %>
     
-    <footer>
+    <!-- <footer>
       <p>&copy; Company 2012</p>
-    </footer>
+    </footer> -->
 
   </div>
-
+  <script src="http://connect.soundcloud.com/sdk.js" type="text/JavaScript"></script>
+  <%= javascript_include_tag "application" %>
 </body>
 </html>

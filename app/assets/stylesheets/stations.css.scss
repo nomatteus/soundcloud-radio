@@ -2,7 +2,25 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-	
+	.container {
+		.content-fluid {
+			#tracklist {
+				margin: 0 auto;
+				max-width: 400px;
+				list-style: none;
+				margin: 0;
+				padding: 0;
+				.track {
+					display:none;
+					img.artwork,
+					img.waveform,
+					a.permalink {
+						display:none;
+					}
+				}
+			}
+		}
+	}
 
   // Landscape phones and down
   @media (max-width: 480px) {
