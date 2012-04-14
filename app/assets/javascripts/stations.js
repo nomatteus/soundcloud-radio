@@ -148,7 +148,7 @@ var colors1 = ["#b01f15", // red
   colors2 = ["#3955ff",
             "#636eff"
             ],
-  colors = (Math.floor(Math.random()*1)==1) ? colors1 : colors2;
+  colors = (Math.floor(Math.random()*2)==1) ? colors1 : colors2;
   num_colors = colors.length,
   rand_color = Math.floor(Math.random()*num_colors);
         if (!$("body").hasClass("animating")) {
