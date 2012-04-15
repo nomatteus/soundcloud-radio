@@ -5,13 +5,8 @@ class StationsController < ApplicationController
   def index
     client = Soundcloud2::Client.new('7f77beae3d19100f293b7647d2e6c8e5')
     @tracks = []
-=begin
-Plan:
- - Move to a 'one box' search, and parse out specific search terms like google
- i.e. search for "techno" will perform a regular search, but you can also search
-        for something like "techno bpm:140" or even "genre:techno bpm:140"
-=end
-      if params[:q]
+
+    if params[:q]
       q = params[:q].clone
       Rails.logger.info "q at beginning is: #{q}"
 
@@ -99,11 +94,5 @@ Plan:
       @tracks = client.tracks(search_params)
     end
 
-  end
-
-  private 
-
-  # Helper method to match a search token such as bpm:130-234 in a string
-  def match_search_token haystack, token
   end
 end
