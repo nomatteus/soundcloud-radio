@@ -1,5 +1,5 @@
 == CloudRadio.ca
 
-This is my project for HackDayTO 2012.
+This is my project for HackDayTO 2012 (http://hackdays.ca).
 
-http://hackdays.ca
+View it online at http://cloudradio.ca
