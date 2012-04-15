@@ -8,16 +8,24 @@
 <!-- <h1>Stations#show</h1>
 <p>Find me in app/views/stations/show.html.erb</p> -->
 
-<div id="controls">
-  <a href="#pauseplay" id="pause-play">Pause/Play</a>
-  <a href="#next" id="next-track">Next Track &raquo;</a>
-</div>
 
-<div id="search-fields">
-  <form method="get" action=".">
-    <input type="text" name="q" value="<%= params[:q]%>" id="field-q">
-    <input type="submit" name="submit" value="►">
-  </form>
+<div id="mid-fields">
+  <div class="group">
+    <h1>CloudRadio</h1>
+    <div id="controls">
+      <a href="#pauseplay" id="pause-play">Pause/Play</a>
+      <a href="#next" id="next-track">Next Track &raquo;</a>
+    </div>
+    <div id="track-info">
+      Now playing: <span class="track-title"></span>
+    </div>
+  </div>
+  <div id="search-fields">
+    <form method="get" action=".">
+      <input type="text" name="q" value="<%= params[:q]%>" id="field-q">
+      <input type="submit" name="submit" value="►">
+    </form>
+  </div>
 </div>
 
 <ul id="tracklist">
@@ -40,4 +48,4 @@
   <% end %>
 </ul>
 
-</div>
+</div><!-- /.content-fluid -->

@@ -19,7 +19,7 @@ var Station = function(){
             waveform_url: $(value).find("img.waveform").attr("src"),
             permalink_url: $(value).find("a.permalink").attr("href"),
 
-            $el: value
+            el: value
           }));
         });
         addListeners();
@@ -74,8 +74,9 @@ var Track = function(params){
     waveform_url:   params["waveform_url"],
     permalink_url:  params["permalink_url"]
   },
-  $el = params["$el"],
-  soundObject = null, // Will hold soundManager object
+  $el = $(params["el"]),
+  $trackTitle = $("#track-info .track-title"),
+  soundObject = null, // Will hold sound object
   hide = function(){
     $($el).hide();
   },
@@ -102,6 +103,8 @@ var Track = function(params){
       volume: 100
     });
     soundObject.play();
+    // update 'now playing'
+    $trackTitle.html($el.find("h3").html());
   },
   events = {
     onfinish: function () {

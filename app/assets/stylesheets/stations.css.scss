@@ -5,34 +5,66 @@
 	.container {
 		width: 100%;
 		.content-fluid {
-			#search-fields {
+			#mid-fields {
 				position: absolute;
-				bottom: 0;
+				top: 50%;
+				margin-top: -72px;
 				width: 100%;
 				text-align: center;
-				input {
-					background-color: rgba(255, 255, 255, 0.3);
-					color: white;
-					height: 50px;
-					width: 400px;
-					font-size: 32px;
-				  text-shadow: 1px 1px 1px #000;
-				  padding: 5px 15px;
-				}
-				input[type=submit] {
-					width: 50px;
-					height: 62px;
-				}
-				input[type=submit]:hover {
-					background-color: rgba(255, 255, 255, 0.5);
+				z-index: 999;
+        .group {
+          margin: 0 auto;
+          width: 485px;
+          h1 {
+            color: white;
+            text-shadow: 1px 1px 1px #000;
+            width: 170px;
+            float: left;
+          }
+          #track-info {
+            color: white;
+            text-shadow: 1px 1px 1px #000;
+            clear: both;
+            text-align: left;
+            font-size: 11px;  
+            margin-bottom: 1px;
+          }
+          #controls {
+            text-align: right;
+            line-height: 35px;
+            a {
+              padding-left: 20px;
+            }
+          }
+        }
+				#search-fields {
+					input {
+						background-color: rgba(255, 255, 255, 0.3);
+						color: white;
+						height: 50px;
+						width: 400px;
+						font-size: 32px;
+					  text-shadow: 1px 1px 1px #000;
+					  padding: 5px 15px;
+					}
+					input[type=submit] {
+						width: 50px;
+						height: 62px;
+					}
+					input[type=submit]:hover {
+						background-color: rgba(255, 255, 255, 0.5);
+					}
 				}
 			}
 			#progress {
-				background-color: rgba(0, 0, 0, 0.3);
+				background-color: transparent;
 				width: 100%;
-				height: 80px;
+				height: 100%;
+				position: absolute;
+				top: 0;
+				left: 0;
 				#progress-position {
-					background-color: rgba(0, 0, 0, 0.3);
+					background-color: rgba(0, 0, 0, 0.15);
 					width: 0;
 					height: 100%;
 					position: relative;
@@ -41,16 +73,13 @@
 						right: 0;
 						height: 100%;
 						width: 0;
-						border-right: 1px solid rgba(0, 0, 0, 0.5);
-						z-index: 999;
+						border-right: 1px solid rgba(0, 0, 0, 0.2);
+						z-index: 9;
 					}
 				}
 				#peak {
 					display:none;
 				}
-			}
-			#controls {
-				text-align: center;
 			}
 			#tracklist {
 				margin: 0 auto;
@@ -61,6 +90,7 @@
 				.track {
 					display:none;
 					img.artwork,
+					h3,
 					a.permalink {
 						display:none;
 					}
@@ -68,7 +98,8 @@
 						position: absolute;
 						//background-color: rgba(0, 0, 0, 0.3);
 						width: 100%;
-						height: 80px;
+						height: 100%;
+						opacity: 0.3;
 						top: 0;
 						left: 0;
 					}
