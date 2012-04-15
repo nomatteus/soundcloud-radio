@@ -1,7 +1,7 @@
 // Place all the behaviors and hooks related to the matching controller here.
 // All this logic will automatically be available in application.js.
 
-var Station = function(params){
+var Station = function(){
   var $el = $("#tracklist"),
       $nextTrack = $("#next-track"),
       $pausePlay = $("#pause-play"),
@@ -40,7 +40,8 @@ var Station = function(params){
       playNextTrack = function() {
         // hide currently playing track if it exists, and set current track
         if (current_track !== null) {
-          tracks[current_track].stop();
+          //tracks[current_track].stop();
+          soundManager.destroySound(tracks[current_track].getId());
           tracks[current_track].hide();
           current_track = current_track + 1;
         } else {
@@ -51,15 +52,17 @@ var Station = function(params){
         tracks[current_track].play();
 
         console.log("playNextTrack() called");
-      },
-      asdf=1;
-  init();
+      };
   return {
     playNext: function() {
       playNextTrack();
+    },
+    init: function() {
+      init();
     }
   };
 };
+var station = Station();
 
 var Track = function(params){
   var soundcloud = {
@@ -81,7 +84,6 @@ var Track = function(params){
   },
   // Pauses or plays [toggle] the track
   pausePlay = function() {
-    // pausing is NOT working with 
     if (soundObject.paused) {
       soundObject.resume();
     } else {
@@ -93,17 +95,18 @@ var Track = function(params){
       id: soundcloud.id,
       url: soundcloud.stream_url,
       autoLoad: true,
-      autoPlay: true,
+      autoPlay: false,
       onload: events.onload,
       onfinish: events.onfinish,
       whileplaying: events.whileplaying,
-      volume: 50
+      volume: 100
     });
     soundObject.play();
   },
   events = {
     onfinish: function () {
       console.log("the sound is finished. onfinish was called");
+      console.log(station);
       station.playNext();
     },
     onload: function() {
@@ -134,7 +137,7 @@ var Track = function(params){
       $("#progress-position").width(pos_pct + "%");
       // peak data
       
-      var threshold = 0.26; // peaks above this will trigger viz change
+      var threshold = 0.4; // peaks above this will trigger viz change
       if (soundObject.peakData.left > threshold || soundObject.peakData.right > threshold) {
         // $("#peak").html("<pre>left:  " + soundObject.peakData.left + "\nright: " + soundObject.peakData.right + "</pre>");
 
@@ -181,6 +184,9 @@ var colors1 = ["#b01f15", // red
     },
     pausePlay: function() {
       pausePlay();
+    },
+    getId: function() {
+      return soundcloud.id;
     }
   };
 };
@@ -206,7 +212,7 @@ if (soundManager.flash9Options.useWaveformData || soundManager.flash9Options.use
 
 soundManager.onready(function() {
   // Ready to use; soundManager.createSound() etc. can now be called.
-  var station = new Station({});
+  station.init();
   //soundManager.createSound({
 
   //});
