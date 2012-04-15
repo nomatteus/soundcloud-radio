@@ -15,18 +15,8 @@
 
 <div id="search-fields">
   <form method="get" action=".">
-    <label for="field-q">search</label><input type="text" name="q" value="<%= params[:q]%>" id="field-q">
-    <a href="#" class="advanced-search-toggle">advanced search</a>
-    <div class="advanced">
-      Min. BPM <input type="text" name="bpm_from" value="<%= params[:bpm_from]%>">
-      Max. BPM <input type="text" name="bpm_to" value="<%= params[:bpm_to]%>">
-      Min. Duration (mins) <input type="text" name="duration_from" value="<%= params[:duration_from]%>">
-      Max. Duration (mins) <input type="text" name="duration_to" value="<%= params[:duration_to]%>">
-      Genres (separate by comma) <input type="text" name="genres" value="<%= params[:genres]%>">
-      <!-- Types (comma-separated i.e. original, remix): <input type="text" name="types" value=""> -->
-      Tags: <input type="text" name="tags" value="<%= params[:tags]%>">
-    </div>
-    <input type="submit" name="submit" value="Go">
+    <input type="text" name="q" value="<%= params[:q]%>" id="field-q">
+    <input type="submit" name="submit" value="►">
   </form>
 </div>
 

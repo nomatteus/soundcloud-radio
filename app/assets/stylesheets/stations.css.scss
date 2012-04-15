@@ -8,16 +8,31 @@
 			#search-fields {
 				position: absolute;
 				bottom: 0;
-				.advanced {
-					display:none;
+				width: 100%;
+				text-align: center;
+				input {
+					background-color: rgba(255, 255, 255, 0.3);
+					color: white;
+					height: 50px;
+					width: 400px;
+					font-size: 32px;
+				  text-shadow: 1px 1px 1px #000;
+				  padding: 5px 15px;
+				}
+				input[type=submit] {
+					width: 50px;
+					height: 62px;
+				}
+				input[type=submit]:hover {
+					background-color: rgba(255, 255, 255, 0.5);
 				}
 			}
 			#progress {
-				background-color: rgba(0, 0, 0, 0.5);
+				background-color: rgba(0, 0, 0, 0.3);
 				width: 100%;
-				height: 40px;
+				height: 80px;
 				#progress-position {
-					background-color: rgba(0, 0, 0, 0.5);
+					background-color: rgba(0, 0, 0, 0.3);
 					width: 0;
 					height: 100%;
 					position: relative;
@@ -53,7 +68,7 @@
 						position: absolute;
 						//background-color: rgba(0, 0, 0, 0.3);
 						width: 100%;
-						height: 40px;
+						height: 80px;
 						top: 0;
 						left: 0;
 					}

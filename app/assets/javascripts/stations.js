@@ -215,22 +215,5 @@ if (soundManager.flash9Options.useWaveformData || soundManager.flash9Options.use
 soundManager.onready(function() {
   // Ready to use; soundManager.createSound() etc. can now be called.
   station.init();
-  //soundManager.createSound({
-
-  //});
 });
 
-$(".advanced-search-toggle").bind("click", function(){
-  $("#search-fields .advanced").toggle();
-});
-
-
-
-
-// SC.initialize({
-//   client_id: "7f77beae3d19100f293b7647d2e6c8e5",
-//   redirect_uri: "http://soundcloud.dev/testing.html"
-// });
-// SC.stream("/tracks/293", function(sound) {
-//   return sound.play();
-// });
