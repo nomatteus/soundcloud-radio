@@ -137,23 +137,25 @@ var Track = function(params){
       $("#progress-position").width(pos_pct + "%");
       // peak data
       
-      var threshold = 0.4; // peaks above this will trigger viz change
+      var threshold = 0.45; // peaks above this will trigger viz change
       if (soundObject.peakData.left > threshold || soundObject.peakData.right > threshold) {
         // $("#peak").html("<pre>left:  " + soundObject.peakData.left + "\nright: " + soundObject.peakData.right + "</pre>");
 
-var colors1 = ["#b01f15", // red
+        // color stuff is a real quick hackjob.
+        // need to find a better way to pick colors
+        var colors1 = ["#b01f15", // red
             "#b0671b", // orange
             "#b0ac24", // yellow
             "#53af1f", // green
             "#0022af", // blue
             "#b02a8e" // purple
             ],
-  colors2 = ["#3955ff",
+            colors2 = ["#3955ff",
             "#636eff"
             ],
-  colors = (Math.floor(Math.random()*2)==1) ? colors1 : colors2;
-  num_colors = colors.length,
-  rand_color = Math.floor(Math.random()*num_colors);
+            colors = (Math.floor(Math.random()*2)==1) ? colors1 : colors2;
+            num_colors = colors.length,
+            rand_color = Math.floor(Math.random()*num_colors);
         if (!$("body").hasClass("animating")) {
           $("body").animate({"background-color": colors[rand_color]}, 100, "linear", function(){
             $("body").removeClass("animating");

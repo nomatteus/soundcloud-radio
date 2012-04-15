@@ -14,6 +14,15 @@ html, body {
 body {
   
 }
+a, a:active, a:visited {
+  color: white;
+  font-size: 16px;
+  text-shadow: 1px 1px 1px #000;
+}
+a:hover {
+  color: #ededed;
+  text-decoration: none;
+}
 
 /* The white background content wrapper */
 .content {
