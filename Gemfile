@@ -7,6 +7,7 @@ gem 'rails', '3.2.3'
 
 group :production do
   gem 'pg' # for heroku
+  gem 'newrelic_rpm' # for heroku
 end
 group :development, :test do
   gem 'mysql2'
