@@ -9,7 +9,7 @@
 <p>Find me in app/views/stations/show.html.erb</p> -->
 
 
-<div id="mid-fields">
+<div id="mid-fields" class="<% if params[:q].nil? %>homepage<% end %>">
   <div class="group">
     <h1>CloudRadio</h1>
     <div id="controls">
@@ -22,9 +22,19 @@
   </div>
   <div id="search-fields">
     <form method="get" action=".">
-      <input type="text" name="q" value="<%= params[:q]%>" id="field-q">
+      <input type="text" name="q" value="<%= params[:q] %>" id="field-q">
       <input type="submit" name="submit" value="►">
     </form>
+    <% if params[:q].nil? %>
+    <div class="sample-searches">
+      <h3>Enter your own search above, or try one of these:</h3>
+      <% ["bpm:180-220", "genre:dubstep", "length:1200-3600", "genres:hiphop,rap,grime",
+          "type:remix", "type:live", "jokes type:spoken", "electro bpm:140",
+          "theremin", "tag:didgeridoo", "tag:harp", "tag:piano", "genre:lullaby"].each do |search_term| %>
+        <%= link_to "#{search_term}", :q => search_term %>
+      <% end %>
+    </div>
+    <% end %>
   </div>
 </div>
 
@@ -47,5 +57,12 @@
     <% end %>
   <% end %>
 </ul>
+
+<div id="about-info">
+  Built at <a href="http://hackdays.ca" target="_blank">HackTO</a><br>
+   on April 14, 2012<br>
+  by <a href="http://ruten.ca" target="_blank">Matt Ruten</a><br>
+  Powered by <a href="http://soundcloud.com/" target="_blank">SoundCloud</a>
+</div>
 
 </div><!-- /.content-fluid -->
