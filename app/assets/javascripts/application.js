@@ -13,5 +13,6 @@
 //= require jquery
 //= require jquery.color
 //= require soundmanager2
+//= require keymaster
 //= require stations
 

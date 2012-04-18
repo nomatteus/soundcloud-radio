@@ -34,10 +34,12 @@ var Station = function(){
         $pausePlay.bind("click", function(ev){
           ev.preventDefault();
           console.log("pause/play called");
-          tracks[current_track].pausePlay();
+          pausePlayToggle();
         });
       },
       playNextTrack = function() {
+        console.log("playNextTrack() called");
+        if (tracks.length === 0) return false;
         // hide currently playing track if it exists, and set current track
         if (current_track !== null) {
           //tracks[current_track].stop();
@@ -50,12 +52,19 @@ var Station = function(){
         }
         tracks[current_track].show();
         tracks[current_track].play();
-
-        console.log("playNextTrack() called");
+      },
+      pausePlayToggle = function() {
+        console.log("pausePlayToggle() called");
+        if (current_track !== null) {
+          tracks[current_track].pausePlay();
+        }
       };
   return {
     playNext: function() {
       playNextTrack();
+    },
+    pausePlayToggle: function() {
+      pausePlayToggle();
     },
     init: function() {
       init();
@@ -219,4 +228,23 @@ soundManager.onready(function() {
   // Ready to use; soundManager.createSound() etc. can now be called.
   station.init();
 });
+
+
+// Keyboard Shortcuts
+key('shift+/', function(){ // handle ?
+  $("#keyboard-shortcuts-overlay").toggle();
+});
+
+key('space, v', function(){
+  console.log("space or v key pressed");
+  station.pausePlayToggle();
+});
+
+key('right, n', function(){
+  console.log("right or n key pressed");
+  station.playNext();
+});
+
+
+
 
