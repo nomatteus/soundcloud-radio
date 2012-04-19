@@ -15,13 +15,16 @@
         .group {
           margin: 0 auto;
           width: 485px;
-          h1 {
+          h1 a {
             color: white;
             text-shadow: 1px 1px 1px #000;
             width: 170px;
             float: left;
+            font-size: 30px;
+            line-height: 36px;
           }
-          #track-info {
+          #track-info, 
+          #track-info a {
             color: white;
             text-shadow: 1px 1px 1px #000;
             clear: both;

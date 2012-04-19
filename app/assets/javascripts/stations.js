@@ -112,8 +112,9 @@ var Track = function(params){
       volume: 100
     });
     soundObject.play();
-    // update 'now playing'
+    // update 'now playing' title and link
     $trackTitle.html($el.find("h3").html());
+    $trackTitle.attr("href", $el.find("a.permalink").attr("href"));
   },
   events = {
     onfinish: function () {

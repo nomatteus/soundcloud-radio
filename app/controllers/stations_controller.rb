@@ -91,7 +91,7 @@ class StationsController < ApplicationController
 
       Rails.logger.info "q at end is: #{q}"
 
-      @tracks = client.tracks(search_params)
+      @tracks = client.tracks(search_params).shuffle
     end
 
   end
