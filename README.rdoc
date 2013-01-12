@@ -3,3 +3,13 @@
 This is my project for HackDayTO 2012 (http://hackdays.ca).
 
 View it online at http://cloudradio.ca
+
+Get a Soundcloud API Key here: http://soundcloud.com/you/apps
+
+Made to run on Heroku. Add Soundcloud API Key to your Heroku App:
+
+		heroku config:add soundcloud_api_key=<your_api_key>
+
+Run server locally with:
+
+		soundcloud_api_key=<your_api_key> rails s

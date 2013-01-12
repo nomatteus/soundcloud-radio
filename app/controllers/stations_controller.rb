@@ -3,7 +3,9 @@ class StationsController < ApplicationController
   end
 
   def index
-    client = Soundcloud2::Client.new('7f77beae3d19100f293b7647d2e6c8e5')
+    # Add soundcloud api key to heroku with:
+    # heroku config:add soundcloud_api_key=<your_api_key>
+    client = Soundcloud2::Client.new(ENV['soundcloud_api_key'])
     @tracks = []
 
     if params[:q]
